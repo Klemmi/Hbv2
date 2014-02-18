@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Radstofunartekjureiknir</title>
+	<meta content="text/html"; charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="hbvcss.css">
+	<script src="scripts.js"  type="text/javascript"></script>
+</head>
+
+
+<body id="radstofunarreiknir">
+	<section id= "topbar" class="intro">
+	<a href="arab.html">Ytarlegt launanidurbrot</a>
+	<a href="arab2.html">Meira dotery</a>
+	<p>Languages: En / Is</p>
+	
+	</section>
+
+	<div id="innslattarsvaedi">
+	
+
+		
+	<section id="birtingarsvaedi_laun">
+		<h1>Birting launa</h1>
+		<form id="birting_launa" onsubmit="return Validate()">
+			<span class="bs_laun">Heildar mánaðarlaun:</span> 
+			
+			<input type="text" name="b_laun" id="b_laun" value="1000000" />
+				</br>
+			<span class="gr_laun"> Timakaup</span>
+			<input type="text" name="m_taxti" id="m_taxti"
+			placeholder="kr/klst"/>
+			<input type="text" name="m_timar" id="m_timar" placeholder="Fjoldi tima"/>
+			</br>
+			<span class="bs_fradrattur">Persónuafsláttur:</span>
+
+			<input type="text" name="b_fradrattur" id="b_fradrattur" value="45000"  />
+				</br>
+			<input type="radio" name="h1" value="manudur" checked="true" id="takki_manadarlaun"> Reikna ut fra manadarlaunum. 
+			</br>
+			<input type="radio" name="h1" value="manudur" id="takki_timakaup"> Reikna ut fra timakaupi og fjolda tima </br>
+
+			<input type="submit" id="b_submit" value="Reikna">
+				</br>
+			<span class="bs_utborgad">Utborgud laun:</span>
+			<input type="text" name="b_utborgad" id="b_utborgad" placeholder="600000" />
+			</br>
+		</form>
+					
+	</section>
+
+	<section id="fradrattur">
+		<h1>Fradrattur</h1>
+		<form id="fradr">
+			<span class="ymis_utgjold"> Ymis utgjold</span>
+				<input type="text" name="f_timar" id="f_timar" placeholder="timar"/>
+				<input type="text" name="f_taxti" id="f_taxti"
+				placeholder="$/klst"/>
+			</br>
+				<span class="yu_samtals"> Samtals: </span>
+				<input type="text" name="f_upphaed" id="f_uppphaed" placeholder="samtals"/>
+			</br>
+
+			<span class="lifeyrir"> Lifeyrir </span>
+				<input type="text" name="l_timar" id="l_timar" placeholder="timar"/>
+				<input type="text" name="l_taxti" id="l_taxti"
+				placeholder="$/klst"/>
+			</br>
+				<span class="lifeyrir_samtals"> Samtals: </span>
+				<input type="text" name="l_upphaed" id="l_uppphaed" placeholder="samtals"/>
+			</br>
+		</br>
+
+			<span class="ymis_utgjold"> Skattar</span>
+				<input type="text" name="s_upphaed" id="s_uppphaed" placeholder="samtals"/>
+		</form>
+	</section>
+</body>
+</html>
