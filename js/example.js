@@ -74,22 +74,30 @@ function roundNumber(number,decimals) {
   return newString; 
 }
 
-function update_total() {
+
+function update_incomehalf() {
   var total = 0;
+  var orlof = 0;
   $('.price').each(function(i){
     price = $(this).html().replace("kr","");
     if (!isNaN(price)) total += Number(price);
   });
 
+  $('.ocost').each(function(i){
+    or = $(this).html().replace("%","");
+    orlof = Number(or) * total/100;
+  });
+  
+  orlof = roundNumber(orlof,2);
+  total = Number(total) + Number(orlof);
   total = roundNumber(total,2);
 
-  $('#total').html(total + "kr");
-}
+  $('#subtotal').html(total);
+  $('#total').html(total);
+  $('.oprice').html(orlof);
 
-
-
-function update_deduction(value) {
-
+  update_deduction();
+  //update_total();
 }
 
 function update_income() {
@@ -98,7 +106,7 @@ function update_income() {
   income = roundNumber(income,2);
   isNaN(income) ? row.find('.price').html("N/A") : row.find('.price').html(income);
   
-  update_total();
+  update_incomehalf();
 }
 
 

@@ -1,0 +1,300 @@
+@charset "utf-8"
+
+body, div, section, img{
+	margin:0;
+	padding:0;
+}
+.divWrapper .Header img{
+	max-width: 400px;
+	max-height: 100px;
+}
+.divWrapper{
+	max-width: 1024px;
+	min-width:275px;
+	border: 1px none;
+	margin-left:10%;
+	margin-right:10%;
+	margin-top:3%;
+	font-size: 24px;
+}
+
+.Header{
+	float:left;
+	width:50%;
+}
+
+.Header img{
+	padding-bottom:6%;
+}
+
+.Header .Links ul li{
+		display:inline-block;
+	}
+
+.Header .Links ul li a{
+	display:inline-block;
+	text-align: center;
+	text-decoration: none;
+	margin-bottom:2px;
+	margin:1%;
+	color:#333;
+	font-size: 1em;
+	border-left: 0.5px solid #55c;
+}
+
+/*.Header .Links ul li a.current{
+	color:#55c;
+	border-bottom:2.5px solid;
+}*/
+
+.Header .Links ul li a:hover{
+	color:#55c;
+	border-bottom:2.5px solid;
+}
+
+.picHeader{
+	background: url(money.jpg);
+	background-size: 100%;
+	height:250px;
+	width: 99%;
+	
+	
+	display: inline-block;
+}
+
+.picHeader .picText{
+	color:white;
+	width:100%;
+
+	margin-top:180px;
+	margin-left:0%;
+}
+
+.picHeader .picText p{
+	font-size: 1em;
+	font-family: "Open Sans", regular;
+}
+
+.picHeader .picText p span { 
+   color: black; 
+   font: bold 32px;
+   font-family:;
+   letter-spacing: 1%;  
+   background: rgb(255, 255, 255);
+   background: rgba(255, 255, 255, 0.7);
+   padding:10px;
+   display: inline-block; 
+   width:100%;
+   margin-left:0%;
+   margin-right:0%;
+   padding-bottom:5%;
+}
+
+.Main{
+	max-width:100%;
+	min-width: 26.86%;
+}
+
+.Main .MainHalf{
+	width:47.5%;
+	padding: 1%;
+	background:linear-gradient(white,lightblue);
+	float:left;
+	margin-bottom:15px;
+	height:490px;
+	border-left:solid white 1px;
+}
+
+.Main .MainHalf a{
+
+	border:1px solid
+;	padding:10px;
+	color:#444;
+	font-family: "Georgia";
+	font-size: 0.68em;
+}
+
+.Main .MainHalf h1{
+	font-family: "Georgia";
+	font-size: 1em;
+}
+
+.Main .MainHalf p{
+	font-family: "Open Sans", regular;
+	font-size: 0.5em;
+	margin-bottom: 30px;
+}
+
+.Footer {
+	max-width:100%;
+	min-width: 26.86%;
+}
+
+.Footer .FooterHalf1, .Footer .FooterHalf2{
+	width:100%;	
+	float:left;
+	/*Gradients*/
+	background: -moz-linear-gradient(top,#eeeeee,#cccccc);
+	background: -webkit-gradient(linear, left top,left bottom, from(#eeeeee), to(#cccccc));
+}
+
+.Footer .FooterHalf1 ul li:before, .Footer .FooterHalf2 ul li:before
+		{	
+			content: "\003E \00A0";
+		}
+
+.Footer .FooterHalf1 h1, .Footer .FooterHalf2 h1{
+	font-size: 0.75em;
+}
+
+.Footer .FooterHalf1 p, .Footer .FooterHalf2 p{
+	font-size: 0.5em;
+	margin-bottom: -9px;
+	list-style-type: none;
+}
+.Main .MainHalf .borga{
+	font-size: 0.8em;
+
+}
+.Main .MainHalf #arfur_fyrirfram_texti{
+		font-size: 0.7em;
+		display: inline;
+	}
+
+@media (max-width: 734px) {
+
+
+.divWrapper .Header img{
+	min-width: 100%;
+	min-height:45%;
+}
+.divWrapper{
+	max-width: 1024px;
+	min-width:370px;
+	border: 1px none;
+	margin-left:0%;
+	margin-right:0%;
+	margin-top:3%;
+	font-size: 32px;
+}
+	
+.Main .MainHalf{
+	width:100%;
+}
+
+.Main .MainHalf h1{
+	font-family: "Georgia";
+	font-size: 1em;
+}
+
+.Main .MainHalf p{
+	font-family: "Open Sans", regular;
+	font-size: 0.5em;
+}
+
+.Header .Links ul li a{
+	font-size: 75%;
+	margin:0%;
+}
+
+.picHeader .picText p{
+	font-size: 0.75em;
+	margin-top:130px;
+}
+
+.Footer .FooterHalf1 h1, .Footer .FooterHalf2 h1{
+	font-size: 0.667em;
+	font-family: "Open Sans", regular;
+}
+
+.Footer .FooterHalf1 p, .Footer .FooterHalf2 p{
+	font-size: 0.5em;
+	font-family: "Open Sans", regular;
+}
+
+.Footer .FooterHalf1, .Footer .FooterHalf2{
+	width:100%;
+}
+
+.Footer .FooterHalf1{
+	/*Gradients*/
+	background: -moz-linear-gradient(top,#eeeeee,#dddddd);
+	background: -webkit-gradient(linear, left top,left bottom, from(#eeeeee), to(#dddddd));
+}
+
+.Footer .FooterHalf2{
+	/*Gradients*/
+	background: -moz-linear-gradient(top,#dddddd,#cccccc);
+	background: -webkit-gradient(linear, left top,left bottom, from(#dddddd), to(#cccccc));
+}
+
+.Header{
+	text-align: center;
+	width:100%;
+}
+
+.picHeader{
+	background: url(money.jpg);
+	background-size: 100%;
+	height:200px;
+	width: 100%;
+	
+	
+	display: inline-block;
+}
+
+.picHeader .picText{
+	color:white;
+	width:100%;
+	margin-top:90px;
+	margin-left:0%;
+}
+
+.picHeader .picText p span { 
+   color: black; 
+   font: bold 32px;
+   font-family:;
+   letter-spacing: 1%;  
+   background: rgb(255, 255, 255); /* fallback color */
+   background: rgba(255, 255, 255, 0.7);
+   padding:10px;
+   display: inline-block; 
+   width:100%;
+   margin-left:0%;
+   margin-right:0%;
+   padding-bottom:9%;
+}
+
+.Header img{
+	padding-bottom:3%;
+}
+
+.Header .Links{
+	width:100%;
+	margin-left:-20px;
+	margin-right:0%;
+	text-align: center;
+}
+
+.Header .Links ul li{
+	margin:0 auto;
+}
+
+.Header .Links ul li a{
+	
+	text-decoration: none;
+}
+
+.Main .MainHalf a{
+	border:1px solid;
+	font-family: "Georgia";
+	font-size: 0.5em;
+}
+
+.Footer .FooterHalf1 p, .Footer .FooterHalf2 p{
+	font-size: 0.5em;
+	margin-bottom: -3px;
+	list-style-type: none;
+}
+	
+}

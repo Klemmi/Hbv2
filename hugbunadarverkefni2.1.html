@@ -24,25 +24,23 @@
 	<div id="innslattarsvaedi">
 	
 
-<section id="sidebar">
-		<p>blabla</p>
-	</section>
+
 	
 	<section id="birtingarsvaedi_laun">
-		<h1>Birting launaaaaaa</h1>
+		<h1>Birting launa</h1>
 		<form id="birting_launa" onsubmit="return Validate()">
 			<span class="bs_laun">Heildar mánaðarlaun:</span> 
 			
-			<input type="text" name="b_laun" id="b_laun" value="1000000" />
+			<input type="Number" name="b_laun" id="b_laun" value="800000" />
 				</br>
 			<span class="gr_laun"> Timakaup</span>
-			<input type="text" name="m_taxti" id="m_taxti"
-			placeholder="kr/klst"/>
-			<input type="text" name="m_timar" id="m_timar" placeholder="Fjoldi tima"/>
+			<input type="Number" name="m_taxti" id="m_taxti"
+			placeholder="kr/klst" value="5000" />
+			<input type="Number" name="m_timar" id="m_timar" placeholder="Fjoldi tima" value="160" />
 			</br>
 			<span class="bs_fradrattur">Persónuafsláttur:</span>
 
-			<input type="text" name="b_fradrattur" id="b_fradrattur" value="45000"  />
+			<input type="Number" name="b_fradrattur" id="b_fradrattur" value="45000"  />
 				</br>
 			<input type="radio" name="h1" value="manudur" checked="true" id="takki_manadarlaun"> Reikna ut fra manadarlaunum. 
 			</br>
@@ -51,7 +49,7 @@
 			<input type="submit" id="b_submit" value="Reikna">
 				</br>
 			<span class="bs_utborgad">Utborgud laun:</span>
-			<input type="text" name="b_utborgad" id="b_utborgad" placeholder="600000" />
+			<input type="Number" name="b_utborgad" id="b_utborgad" placeholder="600000" />
 			</br>
 		</form>
 					
