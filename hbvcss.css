@@ -5,6 +5,7 @@ body{
 	background: linear-gradient(white,darkblue);
 
 }
+
 #allt{
 	margin: 0;
 	padding: 0;
@@ -19,6 +20,14 @@ body{
 
 
 }
+#sidebar{
+	float:right;
+	width:15%;
+	height:800px;
+	background: linear-gradient(gold,blue);
+	background: #fff url(bakgrunnur2.png);
+}
+
 #birtingarsvaedi_laun{
 
 background: #fff url(money.jpg);
@@ -29,8 +38,8 @@ border-bottom-style:dotted;
 height:20em;
 width:30em;
 margin-top:10em;
-float:right;
-margin-right: 4em;
+float:left;
+margin-left: 5em;
 
 }
 
@@ -52,7 +61,7 @@ margin-right: 4em;
 	z-index: 2;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 85%;
 	height: 7em;
 	background: #fff url(money2.png);
 	background-size: 100%;

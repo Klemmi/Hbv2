@@ -91,9 +91,9 @@
 		  <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Orlof</textarea><a class="delete" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="costor">10.17 %</textarea></td>
-		      <td><span class="pqty"></span></td>
-		      <td><span class="subtotalor">0.00</span></td>
+		      <td><textarea class="ocost">10.17 %</textarea></td>
+		      <td><span class="qty"></span></td>
+		      <td><span class="oprice">0.00</span></td>
 		  </tr>
 
 		  <tr id="hiderow">
@@ -104,7 +104,7 @@
 		      <td class="item-name"><p class="bold">Laun alls</p></td>
 		      <td><textarea class="pcost"></textarea></td>
 		      <td><textarea class="pqty"></textarea></td>
-		      <td class="total-value"><div id="subtotal1">0.00</div></td>
+		      <td class="total-value"><div id="subtotal">0.00</div></td>
 		  </tr>
 
 		  <tr class="item-row3">
