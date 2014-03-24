@@ -12,7 +12,7 @@
 
 	<div id="page-wrap">
 
-		<textarea id="header">Launareiknir</textarea>
+		<textarea id="header">Launaseðill</textarea>
 		
 		<div id="identity">
 		
@@ -89,15 +89,19 @@
 		  </tr>
 
 		  <tr class="item-row">
+		      <td class="item-name"><div class="delete-wpr"><textarea>Álag</textarea><a class="delete" href="javascript:;" title="Remove row">-</a></div></td>
+
+		      <td><textarea class="cost">0.00</textarea></td>
+		      <td><textarea class="qty">0.00</textarea></td>
+		      <td><span class="price">0.00</span></td>
+		  </tr>
+
+		  <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Orlof</textarea><a class="delete" href="javascript:;" title="Remove row">-</a></div></td>
 
 		      <td><textarea class="ocost">10.17 %</textarea></td>
 		      <td><span class="qty"></span></td>
 		      <td><span class="oprice">0.00</span></td>
-		  </tr>
-
-		  <tr id="hiderow">
-		    <td colspan="4"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
 		  </tr>
 
 		  <tr class="title-row">
@@ -119,66 +123,62 @@
 		      <td class="item-name"><div class="delete-wpr"><textarea>Orlofsreikningur</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 		      <td><p class="cost"></p></td>
 		      <td><p class="qty"></p></td>
-		      <td><span class="price-orlof">0.00</span></td>
+		      <td><span class="minoprice">0.00</span></td>
 		  </tr>
 		  
 		  <tr class="item-row2">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Félagsgjöld</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="f2cost">0.70 %</textarea></td>
+		      <td><textarea class="mincost1">0.70 %</textarea></td>
 		      <td><span class="fqty"></span></td>
-		      <td><span class="fradratt2">0.00</span></td>
+		      <td><span class="gjold1">0.00</span></td>
 		  </tr>
 
 		  <tr class="item-row2">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Lífeyrissjóður</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="f3cost">4.00 %</textarea></td>
+		      <td><textarea class="mincost2">4.00 %</textarea></td>
 		      <td><span class="fqty"></span></td>
-		      <td><span class="fradratt3">0.00</span></td>
+		      <td><span class="gjold2">0.00</span></td>
 		  </tr>
 
 		  <tr class="item-row2">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Skattar, þrep 1 (37,32% af tekjum 0 - 241.475 kr)</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="pcost"></textarea></td>
+		      <td><textarea class="skattcost1"></textarea></td>
 		      <td><textarea class="pqty"></textarea></td>
-		      <td class="total-value"><div id="subtotal2">0.00</div></td>
+		      <td class="total-value"><div id="skatt1">0.00</div></td>
 		  </tr>
 
 		  <tr class="item-row2">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Skattar, þrep 2 (40,22% af tekjum 241.476 - 739.509 kr)</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="pcost"></textarea></td>
+		      <td><textarea class="skattcost2"></textarea></td>
 		      <td><textarea class="pqty"></textarea></td>
-		      <td class="total-value"><div id="subtotal3">0.00</div></td>
+		      <td class="total-value"><div id="skatt2">0.00</div></td>
 		  </tr>
 
 		  <tr class="item-row2">
 		      <td class="item-name"><div class="delete-wpr"><textarea>Skattar, þrep 3 (46,22% af tekjum yfir 739.509 kr)</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="pcost"></textarea></td>
+		      <td><textarea class="skattcost3"></textarea></td>
 		      <td><textarea class="pqty"></textarea></td>
-		      <td class="total-value"><div id="subtotal4">0.00</div></td>
+		      <td class="total-value"><div id="skatt3">0.00</div></td>
 		  </tr>
 
 		  <tr class="item-row2">
-		      <td class="item-name"><div class="delete-wpr"><textarea>Skattkort</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
+		      <td class="item-name"><div class="delete-wpr"><textarea>Persónuafsláttur</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td>
 
-		      <td><textarea class="skattpro">100 %</textarea></td>
-		      <td><textarea class="skatthlut">48485</textarea></td>
-		      <td><span id="subtotal5"></span></td>
-		  </tr>
-
-		  <tr id="hiderow">
-		    <td colspan="5"><a id="addrow2" href="javascript:;" title="Add a row">Add a row</a></td>
+		      <td><textarea class="skattpro"></textarea></td>
+		      <td><textarea class="skatthlut1">48485.00</textarea></td>
+		      <td><span id="personu"></span></td>
 		  </tr>
 
 		  <tr class="title-row">
 		      <td class="item-name"><p class="bold">Frádráttur alls</p></td>
 		      <td><textarea class="pcost"></textarea></td>
 		      <td><textarea class="pqty"></textarea></td>
-		      <td class="total-value"><div id="fradratturtotal">0.00</div></td>
+		      <td class="total-value"><div id="deduction">0.00</div></td>
 		  </tr>
 		  
 		  
@@ -191,11 +191,6 @@
 		  
 		
 		</table>
-		
-		<div id="terms">
-		  <h5>Háskóli Íslands</h5>
-		  <textarea>Verkefni unnið fyrir Hugbúnaðarverkefni 2</textarea>
-		</div>
 	
 	</div>
 

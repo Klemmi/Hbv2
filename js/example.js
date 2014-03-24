@@ -1,4 +1,5 @@
 
+
 function print_today() {
  
   var now = new Date();
@@ -74,12 +75,91 @@ function roundNumber(number,decimals) {
   return newString; 
 }
 
+function update_total() {
+  var total = Number($("#subtotal").html().replace("kr","")) + Number($("#deduction").html().replace("kr",""));
+  total = roundNumber(total,2);
+  
+  $('#total').html(total + "kr");
+}
+
+function update_deduction(total, orlof) {
+  var deduction = 0;
+  orlof = roundNumber(orlof,2);
+  $('.minoprice').html(-orlof);
+  deduction -= Number(orlof);
+
+  $('.mincost1').each(function(i){
+    g = $(this).html().replace("%","");
+    gjold = Number(g) * total/100;
+    gjold = roundNumber(gjold,2);
+    $('.gjold1').html(-gjold);
+    if (!isNaN(g)) deduction -= Number(gjold);
+  });
+
+  $('.mincost2').each(function(i){
+    g = $(this).html().replace("%","");
+    gjold = Number(g) * total/100;
+    gjold = roundNumber(gjold,2);
+    $('.gjold2').html(-gjold);
+    if (!isNaN(g)) deduction -= Number(gjold);
+  });
+
+  //ATH: Þegar tala er lækkuð og fer niður fyrir skattþrep
+  //þá helst talan áfram í því skattþrepi.
+  //Kannski prufa trigger og change
+
+  if(total>739509) {
+    g = 0.4622;
+    gjold = (total-739509)*g;
+    gjold = roundNumber(gjold,2);
+    $('#skatt3').html(-gjold);
+    if (!isNaN($('#skatt1').html())) deduction -= Number(gjold);
+    total = 739509;
+  }
+  if(total<=739509 && total>241476) {
+    g = 0.4022;
+    gjold = (total-241476)*g;
+    gjold = roundNumber(gjold,2);
+    $('#skatt2').html(-gjold);
+    if (!isNaN($('#skatt2').html())) deduction -= Number(gjold);
+    total = 241475;
+  }
+  if(total<=241475) {
+    g = 0.3732;
+    gjold = (total)*g;
+    gjold = roundNumber(gjold,2);
+    $('#skatt1').html(-gjold);
+    if (!isNaN($('#skatt3').html())) deduction -= Number(gjold);
+  }
+
+  $('.skatthlut1').each(function(i){
+    g = $(this).html();
+    g = roundNumber(g,2);
+    if (-deduction>=g) {
+      $('#personu').html(g);
+      if (!isNaN(g)) deduction += Number(g);
+    }
+    else {
+      $('#personu').html(-deduction);
+      if (!isNaN(g)) deduction += Number(-deduction);
+    }
+    
+  });
+
+  
+  deduction = roundNumber(deduction,2);
+  $('#deduction').html(deduction + "kr");
+
+  update_total();
+  
+
+}
 
 function update_incomehalf() {
   var total = 0;
   var orlof = 0;
   $('.price').each(function(i){
-    price = $(this).html().replace("kr","");
+    price = $(this).html();
     if (!isNaN(price)) total += Number(price);
   });
 
@@ -92,12 +172,10 @@ function update_incomehalf() {
   total = Number(total) + Number(orlof);
   total = roundNumber(total,2);
 
-  $('#subtotal').html(total);
-  $('#total').html(total);
+  $('#subtotal').html(total + "kr");
   $('.oprice').html(orlof);
 
-  update_deduction();
-  //update_total();
+  update_deduction(total,orlof);
 }
 
 function update_income() {
@@ -124,12 +202,6 @@ $(document).ready(function() {
   $("#addrow").click(function(){
     $(".item-row:last").after('<tr class="item-row"><td class="item-name"><div class="delete-wpr"><textarea>Nýr liður</textarea><a class="delete" href="javascript:;" title="Remove row">-</a></div></td><td><textarea class="cost">0.00</textarea></td><td><textarea class="qty">0.00</textarea></td><td><span class="price">0.00</span></td></tr>');
     if ($(".delete").length > 0) $(".delete").show();
-    bind();
-  });
-
-  $("#addrow2").click(function(){
-    $(".item-row2:last").after('<tr class="item-row2"><td class="item-name"><div class="delete-wpr"><textarea>Nýr liður</textarea><a class="delete2" href="javascript:;" title="Remove row">-</a></div></td><td><textarea class="cost">0.00</textarea></td><td><textarea class="qty">0.00</textarea></td><td><span class="price">0.00</span></td></tr>');
-    if ($(".delete2").length > 0) $(".delete2").show();
     bind();
   });
   

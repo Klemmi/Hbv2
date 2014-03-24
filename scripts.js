@@ -1,4 +1,65 @@
 
+$(document).ready(function() {
+
+	var heightBanner = $(".Banner").height();
+    
+    $('.test1').click(function() {
+       
+        $('html,body').animate({ scrollTop: $('#test1').offset().top - heightBanner }, 'slow');
+    });
+    
+    $('.test2').click(function() {
+       
+        $('html,body').animate({ scrollTop: $('#test2').offset().top - heightBanner }, 'slow');
+
+    });
+
+    $('.test3').click(function() {
+       
+        $('html,body').animate({ scrollTop: $('#test3').offset().top - heightBanner }, 'slow');
+    });
+
+    $('.test4').click(function() {
+       
+        $('html,body').animate({ scrollTop: $('#test4').offset().top - heightBanner }, 'slow');
+    });
+
+    $('.test6').click(function() {
+       
+        $('html,body').animate({ scrollTop: $('#identity').offset().top - heightBanner-50 }, 'slow');
+    });
+    Data();
+});
+
+
+var GlobalPersonuafslattur = 48485;
+var GlobalData;
+//Fall sem hledur  gognum
+function Data(){
+	$.getJSON("FFdata.json",function(data){
+	GlobalData=data;		
+	return true;
+	});
+}
+//fall sem validatar fjarmagnstekjuskatt og skrifar ut skattgreidslu
+function ValidateFTS(){
+	var tekjur = document.getElementById("fts_fjarmagn").value;
+	var skattur = Fjarmagnstekjuskattur(tekjur);
+	tekjur = tekjur - skattur;
+	skattur = numberWithCommas(skattur);
+	tekjur = numberWithCommas(tekjur);
+	document.getElementById("p_fjarmangstekjuskattur").innerHTML = "Greiddur fjármagnstekjuskattur: "+ skattur+" krónur" ;
+	document.getElementById("p_fjarmangstekjur").innerHTML = "Nettótekjur: "+tekjur+" krónur" ;
+	return false;
+}
+//fall sem reiknar fjarmangstekjusaktt
+function Fjarmagnstekjuskattur(tekjur){
+	tekjur = Number(tekjur);
+	skattur = 0.2*tekjur;
+	return skattur;
+	return false;
+
+}
 //fall sem reiknar ut erfdaskatt
 function Arfur(){
 	var upphaed = document.getElementById("a_arfur").value;
@@ -7,25 +68,37 @@ function Arfur(){
 	var fyrirframArfur = document.getElementById("arfur_fyrirfram").checked;
 	if (fyrirframArfur==false) {
 		if (upphaed <= skattleysismork) {
-			document.getElementById("p_arfgreidsla").innerHTML ="Utborgadur arfur: " + upphaed;
-			document.getElementById("p_arfgreidslu_skattur").innerHTML ="Greytt i skatt: 0";
+			upphaed = numberWithCommas(upphaed);
+			document.getElementById("p_arfgreidsla").innerHTML ="Útborgaður arfur: " + upphaed+" krónur";
+			document.getElementById("p_arfgreidslu_skattur").innerHTML ="Greytt í skatt: 0 krónur";
 			return false;
 		};
 	};
 	if (fyrirframArfur==true) {
 		var SkilaBreyta = upphaed*0.9;
 		SkilaBreyta = Number(SkilaBreyta);
-		document.getElementById("p_arfgreidsla").innerHTML = "Utborgadur ardur: " + Math.ceil(SkilaBreyta);
 		var Skattgreydsla = upphaed - SkilaBreyta;
-		document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greytt i skatt: " + Math.ceil(Skattgreydsla);
+		Math.ceil(SkilaBreyta)
+		SkilaBreyta = numberWithCommas(SkilaBreyta);
+		document.getElementById("p_arfgreidsla").innerHTML = "Útborgaður arfur: " + SkilaBreyta+" krónur";
+		Math.ceil(Skattgreydsla)
+		Skattgreydsla = numberWithCommas(Skattgreydsla);
+		document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greytt í skatt: " +Skattgreydsla +" krónur";
 		return false;
 
 	};
 	var Skattskillt = upphaed - skattleysismork;
 	var SkilaBreyta = skattleysismork + Skattskillt*0.9;
-	document.getElementById("p_arfgreidsla").innerHTML = "Utborgadur ardur: " + Math.ceil(SkilaBreyta);
+	SkilaBreyta = Number(SkilaBreyta);
+	SkilaBreyta = Math.ceil(SkilaBreyta);
 	var Skattgreydsla = upphaed - SkilaBreyta;
-	document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greytt i skatt: " + Math.ceil(Skattgreydsla);
+	SkilaBreyta = numberWithCommas(SkilaBreyta);
+
+	document.getElementById("p_arfgreidsla").innerHTML = "Útborgaður ardur: " + SkilaBreyta+" krónur";
+	
+	Skattgreydsla = Math.ceil(Skattgreydsla);
+	Skattgreydsla = numberWithCommas(Skattgreydsla);
+	document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greytt í skatt: " + Skattgreydsla+" krónur";
 	return false;
 }
 
@@ -48,6 +121,97 @@ function Validate(){
 	};
 	return false;
 }
+//fall sem validatar framfaerslureiknivel
+function ValidateFF(){
+	var rett = true;//Breyta sem verdur false ef eitthvad test failar
+	var ManadarLaun = document.getElementById("FF_laun").value;
+	if (!Number(ManadarLaun)) {
+		rett = false;
+	};
+	if (ManadarLaun<0) {
+		rett = false;
+	};
+	if (rett) {
+		ReiknaFramf();
+	};
+	return false;
+}
+//fall sem reiknar framfaerslu
+function ReiknaFramf(){
+	var laun = document.getElementById("FF_laun").value;
+	var personuaflsattur = Number(GlobalPersonuafslattur);
+	laun = Number(laun);
+	var adults = document.getElementById("FF_adults").value;
+	adults = Number(adults);
+	var children = document.getElementById("FF_children").value;
+	children = Number(children);
+	var samtals = PrentaFF(adults,children);//samtals kostnadur
+	var nettotekjur = SkattUtreikningur(laun,GlobalPersonuafslattur);
+	PrentaTextaFF(samtals,nettotekjur);
+	return false;
+}
+//Fall sem prentar ut texta um framfaerslu 
+//Tekur inn kostnad vid ad lifa og tekjur eftir skatt.
+function PrentaTextaFF(Kostnadur,Nettotekjur){
+	Kostnadur = Number(Kostnadur);
+	Kostnadur = Kostnadur*1000;
+	Nettotekjur = Number(Nettotekjur);
+	Kostnadur = Math.ceil(Kostnadur);
+	Nettotekjur = Math.ceil(Nettotekjur);
+	if (Kostnadur>Nettotekjur) {
+		var tala = Kostnadur-Nettotekjur;
+		tala = numberWithCommas(tala);
+		document.getElementById("FF_birtingartexti2").innerHTML = "Þú hefur líklegast ekki ráð á því að reka þessa fjölskyldu miðað við gefin mánaðarlaun. Þú tapar um það bil " +tala+" krónum á mánuði." ;
+	};
+	if (Kostnadur<Nettotekjur) {
+		var tala = Nettotekjur-Kostnadur;
+		tala = numberWithCommas(tala);
+		
+		document.getElementById("FF_birtingartexti2").innerHTML = "Þú hefur ráð á að reka þessa fjölskyldu og muntu líklegast eiga "+tala+" krónur í afgang á mánuði." ;
+		
+	};
+	if (Kostnadur == Nettotekjur) {
+		document.getElementById("FF_birtingartexti2").innerHTML = +"Þú hefur líklegast ráð á að reka þessa fjölskyldu en þarft samt að fara gætilega með peningana og getur þú ekki búist við því að eiga afgang í lok mánaðar. " ;
+	};
+	return false;
+}
+//Fall sem skrifar/prentar ut kostnad uppihaldskostnad fyrir Framfaerslu reiknivel
+//tekur inn fjolda fullordinna og fjolda barna. skilar samtalskostnadi sem number.
+function PrentaFF(adults,children){
+	adults = Number(adults);
+	children = Number(children);
+	if (adults == 1) {
+		var matur =  GlobalData[children]["Matur/ hrein.vörur"];
+		var fot = GlobalData[children]["Föt/ skór"];
+		var laeknir = GlobalData[children]["Læknis­kostn./lyf"];
+		var tomst = GlobalData[children]["Tóm­stundir"];
+		var samskipti = GlobalData[children]["Sam-skipti"];
+		var onnurth = GlobalData[children]["Önnur þjónusta"];
+		var samgongur = GlobalData[children]["Sam­göngur"];
+		var samtals = GlobalData[children]["Samtals"];
+	};
+	if (adults == 2) {
+		var matur =  GlobalData[6+children]["Matur/ hrein.vörur"];
+		var fot = GlobalData[6+children]["Föt/ skór"];
+		var laeknir = GlobalData[6+children]["Læknis­kostn./lyf"];
+		var tomst = GlobalData[6+children]["Tóm­stundir"];
+		var samskipti = GlobalData[6+children]["Sam-skipti"];
+		var onnurth= GlobalData[6+children]["Önnur þjónusta"];
+		var samgongur = GlobalData[children]["Sam­göngur"];
+		var samtals = GlobalData[6+children]["Samtals"];
+	};
+	document.getElementById("FF_birtingartexti1").innerHTML = 
+		"Matur og hreinlætisvörur:  " + matur + "kr" + "<br>" +
+		"Föt og skór:  " + fot + "kr" + "<br>"+
+		"Lækniskostnaður og lyf:  " + laeknir + "kr" + "<br>"+
+		"Tómstundir:  " + tomst + "kr" + "<br>"+
+		"Samskipti:  " + samskipti + "kr" + "<br>"+
+		"Önnur þjónusta:  " + onnurth + "kr" + "<br>"+
+		"Samgöngur :  " + samgongur + "kr" + "<br>"+
+		"Samanlagður kostnaður:  " + samtals + "kr" + "<br>" 
+		;
+	return Number(samtals);
+}
 //fall sem leggur saman klst og timakaup og tekur skatt
 function ReiknaUtFraTima(){
 	var timar = document.getElementById("m_taxti").value;
@@ -59,6 +223,8 @@ function ReiknaUtFraTima(){
 	var SkilaBreyta = SkattUtreikningur(kaup,Personuafslattur);
 	SkilaBreyta = Math.ceil(SkilaBreyta);
 	Borgad = kaup - SkilaBreyta;
+	SkilaBreyta = numberWithCommas(SkilaBreyta);
+	Borgad = numberWithCommas(Borgad);
 	document.getElementById("output_borgadur_skattur").innerHTML = "Greytt i skatt: " + Borgad;
 	document.getElementById("output_utborgad").innerHTML = "Utborgud laun: " + SkilaBreyta;
 	return false;
@@ -75,6 +241,8 @@ function Reikna(){
 	SkilaBreyta = Math.ceil(SkilaBreyta);
 	//SkilaBreyta = SkilaBreyta;
 	Borgad = ManadarLaun - SkilaBreyta;
+	SkilaBreyta = numberWithCommas(SkilaBreyta);
+	Borgad = numberWithCommas(Borgad);
 	document.getElementById("output_borgadur_skattur").innerHTML = "Greytt i skatt: " + Borgad;
 	document.getElementById("output_utborgad").innerHTML = "Utborgud laun: " + SkilaBreyta;
 	
@@ -99,10 +267,7 @@ function SkattUtreikningur(Breyta, Personuafslattur){
 	};
 	if (Breyta > step1) {
 		Nidurstada = step1*skattur1+Personuafslattur;	
-		console.log(Nidurstada);
 		Nidurstada = Nidurstada + (Breyta - step1)*skattur2;
-		console.log(Breyta-step1);
-		console.log(Nidurstada);
 		return Nidurstada;
 	};
 	if (Breyta <=step1) {
@@ -127,4 +292,8 @@ function  ValidateManudur(){
 	};
 
 	return rett;
+}
+//Fall sem setur tolur med punktum inn
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }

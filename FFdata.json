@@ -1,0 +1,134 @@
+[
+  {
+    "FIELD1":"Barnlaus",
+    "Matur/ hrein.vörur":"44.052",
+    "Föt/ skór":"8.483",
+    "Læknis­kostn./lyf":"9.093",
+    "Tóm­stundir":"12.017",
+    "Sam-skipti":"11.562",
+    "Önnur þjónusta":"4.154",
+    "Sam­göngur":"45.080",
+    "Samtals":"134.440"
+  },
+  {
+    "FIELD1":"með 1 barn",
+    "Matur/ hrein.vörur":"68.701",
+    "Föt/ skór":" 13.733",
+    "Læknis­kostn./lyf":" 11.058",
+    "Tóm­stundir":" 22.374",
+    "Sam-skipti":"13.945",
+    "Önnur þjónusta":"6.921",
+    "Sam­göngur":"45.080",
+    "Samtals":"181.812"
+  },
+  {
+    "FIELD1":"með 2 börn",
+    "Matur/ hrein.vörur":"89.093",
+    "Föt/ skór":"18.984",
+    "Læknis­kostn./lyf":"13.025",
+    "Tóm­stundir":"31.345",
+    "Sam-skipti":"16.327",
+    "Önnur þjónusta":"9.689",
+    "Sam­göngur":"52.080",
+    "Samtals":"230.543"
+  },
+  {
+    "FIELD1":"með 3 börn",
+    "Matur/ hrein.vörur":" 105.225",
+    "Föt/ skór":"24.235",
+    "Læknis­kostn./lyf":" 14.990",
+    "Tóm­stundir":"38.932",
+    "Sam-skipti":"18.710",
+    "Önnur þjónusta":"12.457",
+    "Sam­göngur":"59.080",
+    "Samtals":" 273.630"
+  },
+  {
+    "FIELD1":"með 4 börn",
+    "Matur/ hrein.vörur":" 117.099",
+    "Föt/ skór":" 29.486",
+    "Læknis­kostn./lyf":"16.957",
+    "Tóm­stundir":" 38.932",
+    "Sam-skipti":"21.091",
+    "Önnur þjónusta":"15.225",
+    "Sam­göngur":"66.080",
+    "Samtals":"304.870"
+  },
+  {
+    "FIELD1":"með 5 börn",
+    "Matur/ hrein.vörur":"117.099",
+    "Föt/ skór":"34.737",
+    "Læknis­kostn./lyf":" 18.922",
+    "Tóm­stundir":"38.932",
+    "Sam-skipti":" 23.474",
+    "Önnur þjónusta":"17.993",
+    "Sam­göngur":" 78.659",
+    "Samtals":"329.817"
+  },
+  {
+    "FIELD1":"Barnlaus",
+    "Matur/ hrein.vörur":"81.412",
+    "Föt/ skór":"11.238",
+    "Læknis­kostn./lyf":" 13.568",
+    "Tóm­stundir":" 21.458",
+    "Sam-skipti":" 16.864",
+    "Önnur þjónusta":"8.259",
+    "Sam­göngur":"45.080",
+    "Samtals":" 197.906"
+  },
+  {
+    "FIELD1":"með 1 barn",
+    "Matur/ hrein.vörur":"106.062",
+    "Föt/ skór":"16.490",
+    "Læknis­kostn./lyf":" 15.533",
+    "Tóm­stundir":"31.842",
+    "Sam-skipti":" 19.247",
+    "Önnur þjónusta":" 11.028",
+    "Sam­göngur":" 52.080",
+    "Samtals":"252.282"
+  },
+  {
+    "FIELD1":"með 2 börn ",
+    "Matur/ hrein.vörur":"126.453",
+    "Föt/ skór":" 21.741",
+    "Læknis­kostn./lyf":" 17.500",
+    "Tóm­stundir":" 40.814",
+    "Sam-skipti":"21.629",
+    "Önnur þjónusta":" 13.795",
+    "Sam­göngur":"59.080",
+    "Samtals":"301.012"
+  },
+  {
+    "FIELD1":"með 3 börn",
+    "Matur/ hrein.vörur":"142.586",
+    "Föt/ skór":"26.992",
+    "Læknis­kostn./lyf":" 19.465",
+    "Tóm­stundir":"48.401",
+    "Sam-skipti":" 24.012",
+    "Önnur þjónusta":"16.563",
+    "Sam­göngur":" 66.080",
+    "Samtals":"344.098"
+  },
+  {
+    "FIELD1":"með 4 börn ",
+    "Matur/ hrein.vörur":"154.459",
+    "Föt/ skór":"32.242",
+    "Læknis­kostn./lyf":"21.432",
+    "Tóm­stundir":" 48.401",
+    "Sam-skipti":"26.393",
+    "Önnur þjónusta":"19.332",
+    "Sam­göngur":"78.659",
+    "Samtals":" 380.919"
+  },
+  {
+    "FIELD1":"með 5 börn ",
+    "Matur/ hrein.vörur":" 154.459",
+    "Föt/ skór":"37.494",
+    "Læknis­kostn./lyf":" 23.397",
+    "Tóm­stundir":" 48.401",
+    "Sam-skipti":"28.776",
+    "Önnur þjónusta":"22.099",
+    "Sam­göngur":" 85.659",
+    "Samtals":"400.286"
+  }
+]
