@@ -1,4 +1,7 @@
 
+function prenta(){
+  window.print;
+}
 
 function print_today() {
  

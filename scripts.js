@@ -23,11 +23,16 @@ $(document).ready(function() {
        
         $('html,body').animate({ scrollTop: $('#test4').offset().top - heightBanner }, 'slow');
     });
-
-    $('.test6').click(function() {
+    $('.headermynd').click(function() {
        
-        $('html,body').animate({ scrollTop: $('#identity').offset().top - heightBanner-50 }, 'slow');
+        $('html,body').animate({ scrollTop: $('.picHeader').offset().top - heightBanner }, 'slow');
     });
+    //$('.test6').click(function() {
+       
+        //$('html,body').animate({ scrollTop: $('#identity').offset().top - heightBanner-50 }, 'slow');
+     //   $('.dialog').load(this.href).dialog('open');
+
+   // });
     Data();
 });
 
@@ -48,6 +53,7 @@ function ValidateFTS(){
 	tekjur = tekjur - skattur;
 	skattur = numberWithCommas(skattur);
 	tekjur = numberWithCommas(tekjur);
+	
 	document.getElementById("p_fjarmangstekjuskattur").innerHTML = "Greiddur fjármagnstekjuskattur: "+ skattur+" krónur" ;
 	document.getElementById("p_fjarmangstekjur").innerHTML = "Nettótekjur: "+tekjur+" krónur" ;
 	return false;
@@ -70,7 +76,7 @@ function Arfur(){
 		if (upphaed <= skattleysismork) {
 			upphaed = numberWithCommas(upphaed);
 			document.getElementById("p_arfgreidsla").innerHTML ="Útborgaður arfur: " + upphaed+" krónur";
-			document.getElementById("p_arfgreidslu_skattur").innerHTML ="Greytt í skatt: 0 krónur";
+			document.getElementById("p_arfgreidslu_skattur").innerHTML ="Greitt í skatt: 0 krónur";
 			return false;
 		};
 	};
@@ -83,7 +89,7 @@ function Arfur(){
 		document.getElementById("p_arfgreidsla").innerHTML = "Útborgaður arfur: " + SkilaBreyta+" krónur";
 		Math.ceil(Skattgreydsla)
 		Skattgreydsla = numberWithCommas(Skattgreydsla);
-		document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greytt í skatt: " +Skattgreydsla +" krónur";
+		document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greitt í skatt: " +Skattgreydsla +" krónur";
 		return false;
 
 	};
@@ -98,7 +104,7 @@ function Arfur(){
 	
 	Skattgreydsla = Math.ceil(Skattgreydsla);
 	Skattgreydsla = numberWithCommas(Skattgreydsla);
-	document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greytt í skatt: " + Skattgreydsla+" krónur";
+	document.getElementById("p_arfgreidslu_skattur").innerHTML = "Greitt í skatt: " + Skattgreydsla+" krónur";
 	return false;
 }
 
@@ -146,7 +152,11 @@ function ReiknaFramf(){
 	var children = document.getElementById("FF_children").value;
 	children = Number(children);
 	var samtals = PrentaFF(adults,children);//samtals kostnadur
-	var nettotekjur = SkattUtreikningur(laun,GlobalPersonuafslattur);
+	var personuafslattur = GlobalPersonuafslattur;
+	if (adults == 2) {
+		personuafslattur = 2*personuafslattur;
+	};
+	var nettotekjur = SkattUtreikningur(laun,personuafslattur);
 	PrentaTextaFF(samtals,nettotekjur);
 	return false;
 }
@@ -161,13 +171,13 @@ function PrentaTextaFF(Kostnadur,Nettotekjur){
 	if (Kostnadur>Nettotekjur) {
 		var tala = Kostnadur-Nettotekjur;
 		tala = numberWithCommas(tala);
-		document.getElementById("FF_birtingartexti2").innerHTML = "Þú hefur líklegast ekki ráð á því að reka þessa fjölskyldu miðað við gefin mánaðarlaun. Þú tapar um það bil " +tala+" krónum á mánuði." ;
+		document.getElementById("FF_birtingartexti2").innerHTML = "Þú hefur líklegast ekki ráð á því að reka þessa fjölskyldu miðað við gefin mánaðarlaun. Þú tapar um það bil " +tala+" krónum á mánuði. Þessi upphæð er án húsnæðiskostnaðar. " ;
 	};
 	if (Kostnadur<Nettotekjur) {
 		var tala = Nettotekjur-Kostnadur;
 		tala = numberWithCommas(tala);
 		
-		document.getElementById("FF_birtingartexti2").innerHTML = "Þú hefur ráð á að reka þessa fjölskyldu og muntu líklegast eiga "+tala+" krónur í afgang á mánuði." ;
+		document.getElementById("FF_birtingartexti2").innerHTML = "Þú hefur ráð á að reka þessa fjölskyldu og muntu líklegast eiga "+tala+" krónur í afgang á mánuði. Þessi upphæð er án húsnæðiskostnaðar." ;
 		
 	};
 	if (Kostnadur == Nettotekjur) {
@@ -225,7 +235,7 @@ function ReiknaUtFraTima(){
 	Borgad = kaup - SkilaBreyta;
 	SkilaBreyta = numberWithCommas(SkilaBreyta);
 	Borgad = numberWithCommas(Borgad);
-	document.getElementById("output_borgadur_skattur").innerHTML = "Greytt i skatt: " + Borgad;
+	document.getElementById("output_borgadur_skattur").innerHTML = "Greitt i skatt: " + Borgad;
 	document.getElementById("output_utborgad").innerHTML = "Utborgud laun: " + SkilaBreyta;
 	return false;
 }
@@ -243,7 +253,7 @@ function Reikna(){
 	Borgad = ManadarLaun - SkilaBreyta;
 	SkilaBreyta = numberWithCommas(SkilaBreyta);
 	Borgad = numberWithCommas(Borgad);
-	document.getElementById("output_borgadur_skattur").innerHTML = "Greytt i skatt: " + Borgad;
+	document.getElementById("output_borgadur_skattur").innerHTML = "Greitt i skatt: " + Borgad;
 	document.getElementById("output_utborgad").innerHTML = "Utborgud laun: " + SkilaBreyta;
 	
 	return false;

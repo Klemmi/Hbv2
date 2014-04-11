@@ -1,19 +1,26 @@
-<!doctype html>
-<html lang="is">
-<head>
-	<meta content='text/html' charset="UTF-8">
-	<title>Launareiknir</title>
-	<link rel="stylesheet" type='text/css' href="css/style2.css">
-	<script type='text/javascript' src='js/jquery-1.3.2.min.js'></script>
+<!doctype <html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-2.0.3.js"></script>
+		<script type='text/javascript' src='js/jquery.scrollTo-min.js'></script>
+		<meta http-equiv="Content-Type" content="text/html"; charset="utf-8"/>
+		<lang = "en"/>
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" media="only screen and(max-device-width: 1024px)" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<script src="scripts.js"  type="text/javascript"></script>
+		<script type='text/javascript' src='js/jquery-1.3.2.min.js'></script>
 	<script type='text/javascript' src='js/example.js'></script>
+	<link rel="stylesheet" type='text/css' href="css/style.css">
+		
 
-</head>
-<body>
+	</head>
 
-	<div id="page-wrap">
-		<a onclick="prenta"><img src="prentari.jpg" alt="prenta sidu" id="print-button" /></a>
-		<button onclick="myFunction()">Print this page</button>
-		<textarea id="header">Launaseðill</textarea>
+	<body>
+
+<div id="page-wrap">
+
+		<h2 id="test6">Launaseðill</h2>
 		
 		<div id="identity">
 		
@@ -194,6 +201,8 @@
 		</table>
 	
 	</div>
+</div>
 
-</body>
-</html>
+
+	</body>
+</html>	
